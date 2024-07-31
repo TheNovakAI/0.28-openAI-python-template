@@ -22,11 +22,12 @@ def get_user_prompt():
 def create_chat_completion(system_prompt, user_prompt):
     """Creates a chat completion using OpenAI's API."""
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
-        ]
+        ],
+        max_tokens=4000
     )
     return response
 
